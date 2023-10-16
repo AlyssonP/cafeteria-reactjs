@@ -1,6 +1,9 @@
 .col {
-  margin: 10px;
   padding: 0;
+}
+
+.card-food {
+  margin-bottom: 20px;
 }
 
 div.card{
