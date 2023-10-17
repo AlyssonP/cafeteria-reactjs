@@ -16,6 +16,10 @@ div.card{
   height: 50px;
 }
 
+.food-header {
+  font-weight: bold;
+}
+
 img.card-img {
   height: 250px;
   object-fit: cover;

@@ -1,12 +1,27 @@
 import { Container, Row, Button} from "react-bootstrap";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Food from "./Food";
 
 //Dados
-import Foods from "../dataset/foods.js";
+import Foods from "../models/foods.js";
 
 const Main = () => {
-  let [foods, setFoods] = useState(Foods)
+  let [foods, setFoods] = useState(Foods);
+
+  const buttonAdd =  useRef(null);
+
+  const handleAddFoodClick = (event) => {
+    let food = {
+      id: 5,
+      name: "Sanduiche",
+      src: "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+      alt: "Sanduiche muito bom"
+    };
+
+    setFoods([...foods, food]);
+
+    buttonAdd.current.disabled = true;
+  }
 
   return (
   <main>
@@ -17,6 +32,8 @@ const Main = () => {
         <Button 
           variant="secondary" 
           style={{fontSize:"15px", borderRadius:"20px"}}
+          onClick={handleAddFoodClick}
+          ref={buttonAdd}
         >
           +
         </Button>
